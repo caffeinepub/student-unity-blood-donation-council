@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep Red Blood Donation Theme */
+    --background: 0.98 0.002 22;
+    --foreground: 0.15 0.025 22;
+
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.025 22;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.025 22;
+
+    /* Primary: Deep Red #8B0000 */
+    --primary: 0.37 0.14 22;
+    --primary-foreground: 1 0 0;
+
+    --secondary: 0.94 0.01 22;
+    --secondary-foreground: 0.25 0.04 22;
+
+    --muted: 0.94 0.005 22;
+    --muted-foreground: 0.52 0.02 22;
+
+    --accent: 0.93 0.015 22;
+    --accent-foreground: 0.37 0.14 22;
+
+    --destructive: 0.55 0.22 22;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.88 0.01 22;
+    --input: 0.88 0.01 22;
+    --ring: 0.37 0.14 22;
+
+    --radius: 0.75rem;
+
+    /* Chart colors */
+    --chart-1: 0.37 0.14 22;
+    --chart-2: 0.5 0.18 22;
+    --chart-3: 0.65 0.12 22;
+    --chart-4: 0.45 0.1 250;
+    --chart-5: 0.55 0.14 140;
+
+    /* Sidebar */
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.15 0.025 22;
+    --sidebar-primary: 0.37 0.14 22;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.94 0.01 22;
+    --sidebar-accent-foreground: 0.25 0.04 22;
+    --sidebar-border: 0.88 0.01 22;
+    --sidebar-ring: 0.37 0.14 22;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+/* Mobile app shell */
+.app-shell {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+  background: oklch(var(--background));
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Safe area padding for mobile */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* Blood drop animation */
+@keyframes pulse-red {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.pulse-red {
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+/* Scrollable content above bottom nav */
+.page-content {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  min-height: 100dvh;
+}
